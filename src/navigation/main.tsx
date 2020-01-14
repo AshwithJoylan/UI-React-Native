@@ -14,7 +14,7 @@ import {
   StackNavigationConfig,
 } from 'react-navigation-stack/lib/typescript/src/vendor/types';
 
-import {Home, Profiles, Pay, PayDetails} from '../containers';
+import {Home, Profiles, Pay, PayDetails, Jewelry1} from '../containers';
 
 const screens: NavigationRouteConfigMap<
   StackNavigationOptions,
@@ -22,6 +22,7 @@ const screens: NavigationRouteConfigMap<
 > = {
   Test,
   Home,
+  Jewelry1,
   Profiles,
   Pay,
   PayDetails,
@@ -48,7 +49,7 @@ const config: CreateNavigatorConfig<
 > = {
   mode: 'card',
   headerMode: 'none',
-  initialRouteName: 'Profiles',
+  initialRouteName: 'Jewelry1',
   defaultNavigationOptions: {
     gestureEnabled: true,
     cardOverlayEnabled: true,

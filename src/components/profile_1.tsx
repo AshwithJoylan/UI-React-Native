@@ -1,15 +1,18 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {useState} from 'react';
 import {View, Text, StatusBar, Image} from 'react-native';
 import {SafeAreaView, withNavigation} from 'react-navigation';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import moment from 'moment';
 import styles from '../styles/profile1';
 import Main from './Profile_1_main';
-import {Button, Highlight} from '../utility';
+import {Button} from '../utility';
 import {NavProp} from '../nav';
-import {FlatList, PanGestureHandler, State} from 'react-native-gesture-handler';
+import {
+  PanGestureHandler,
+  State,
+  ScrollView,
+} from 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
 import Metrics from '../metrics';
 
@@ -211,14 +214,8 @@ const Profile1 = ({navigation}: Props) => {
           <View style={[styles.listHeaderContainer]}>
             <Text style={styles.listTitle}>Feed</Text>
           </View>
-          <FlatList
-            bounces={false}
-            style={{marginBottom: 10}}
-            scrollEventThrottle={16}
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={styles.listContainer}
-            data={data}
-            renderItem={({item}) => (
+          <ScrollView contentContainerStyle={styles.listContainer}>
+            {data.map(item => (
               <View style={styles.listItem}>
                 <View style={styles.itemHeader}>
                   <Image
@@ -239,7 +236,7 @@ const Profile1 = ({navigation}: Props) => {
                 </View>
                 <View style={styles.itemDescription}>
                   <View style={styles.itemDesc}>
-                  <Text style={styles.descText}>{item.description}</Text>
+                    <Text style={styles.descText}>{item.description}</Text>
                   </View>
                   <Image
                     resizeMode="cover"
@@ -247,7 +244,7 @@ const Profile1 = ({navigation}: Props) => {
                     style={styles.itemImage}
                   />
                 </View>
-                <View style={[styles.itemHeader, {height: 50, marginTop: 20,}]}>
+                <View style={[styles.itemHeader, {height: 50, marginTop: 20}]}>
                   <Button
                     underlayColor="rgba(255,255,255,0.1)"
                     style={styles.bottomBox}>
@@ -270,9 +267,8 @@ const Profile1 = ({navigation}: Props) => {
                   </Button>
                 </View>
               </View>
-            )}
-            ItemSeparatorComponent={() => <View style={styles.separator} />}
-          />
+            ))}
+          </ScrollView>
         </Animated.View>
       </PanGestureHandler>
       <Button

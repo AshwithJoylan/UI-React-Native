@@ -13,7 +13,7 @@ const {interpolate, Extrapolate} = Animated;
 const v =
   -Metrics.height +
   (Metrics.height * 0.6 - Metrics.barHeight - (Metrics.isAndroid ? 40 : 30));
-  
+
 // Component
 const Main = ({y}: Props) => {
   const translateY = interpolate(y, {
