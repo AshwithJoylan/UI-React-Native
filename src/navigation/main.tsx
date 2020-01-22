@@ -5,6 +5,7 @@ import {
   CreateNavigatorConfig,
   NavigationStackRouterConfig,
   NavigationRouteConfigMap,
+  NavigationNavigator,
 } from 'react-navigation';
 
 import Test from '../Test';
@@ -68,4 +69,4 @@ const config: CreateNavigatorConfig<
 };
 
 const stack = createStackNavigator(screens, config);
-export default createAppContainer(stack);
+export default createAppContainer(stack as NavigationNavigator<{}, unknown>);
