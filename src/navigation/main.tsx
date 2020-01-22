@@ -14,7 +14,15 @@ import {
   StackNavigationConfig,
 } from 'react-navigation-stack/lib/typescript/src/vendor/types';
 
-import {Home, Profiles, Pay, PayDetails, Jewelry1, Chrome} from '../containers';
+import {
+  Home,
+  Profiles,
+  Pay,
+  PayDetails,
+  Jewelry1,
+  Chrome,
+  CardSelection,
+} from '../containers';
 
 const screens: NavigationRouteConfigMap<
   StackNavigationOptions,
@@ -25,6 +33,7 @@ const screens: NavigationRouteConfigMap<
   Jewelry1,
   Profiles,
   Pay,
+  CardSelection,
   PayDetails,
   Chrome,
 };
@@ -50,7 +59,7 @@ const config: CreateNavigatorConfig<
 > = {
   mode: 'card',
   headerMode: 'none',
-  initialRouteName: 'Chrome',
+  initialRouteName: 'CardSelection',
   defaultNavigationOptions: {
     gestureEnabled: true,
     cardOverlayEnabled: true,
