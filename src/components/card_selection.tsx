@@ -1,11 +1,8 @@
 import React, {useState, useRef, useMemo} from 'react';
 import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
-import {RectButton, TouchableHighlight} from 'react-native-gesture-handler';
+import {TouchableHighlight} from 'react-native-gesture-handler';
 import Animated, {
   Easing,
-  Transitioning,
-  Transition,
-  TransitioningView,
 } from 'react-native-reanimated';
 import {bInterpolate, timing as runTiming, max} from 'react-native-redash';
 
@@ -42,7 +39,6 @@ const timing = (clock: Animated.Clock) =>
   runTiming({clock, from: 0, to: 1, duration: 400, easing: Easing.linear});
 
 export default ({cards}: CardSelectionProps) => {
-  const container = useRef<TransitioningView>();
   const [selectedCardState, setSelectCardState] = useState(INITIAL_INDEX);
   const {
     selectedCard,
@@ -71,9 +67,6 @@ export default ({cards}: CardSelectionProps) => {
     [cards],
   );
   const selectCardState = ([index]: readonly number[]) => {
-    if (container && container.current) {
-      container.current.animateNextTransition();
-    }
     setSelectCardState(index);
   };
   const selectCard = (index: number) => {
@@ -147,10 +140,7 @@ export default ({cards}: CardSelectionProps) => {
     [cards],
   );
   return (
-    <Transitioning.View
-      ref={container}
-      style={styles.container}
-      transition={<Transition.In type="fade" durationMs={100} />}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.cards}>
         {cards.map((card, index) => {
           const zIndex = cardZIndexes[index];
@@ -175,22 +165,20 @@ export default ({cards}: CardSelectionProps) => {
           );
         })}
       </View>
-      <SafeAreaView>
-        {cards.map(({id, name, color, thumbnail}, index) => (
-          <TouchableHighlight
-            underlayColor="rgba(0,0,0,0.05)"
-            key={id}
-            onPress={() => selectCard(index)}>
-            <View style={styles.button} accessible>
-              <Thumbnail {...{thumbnail}} />
-              <View style={styles.label}>
-                <Text>{name}</Text>
-              </View>
+      {cards.map(({id, name, color, thumbnail}, index) => (
+        <TouchableHighlight
+          underlayColor="rgba(0,0,0,0.05)"
+          key={id}
+          onPress={() => selectCard(index)}>
+          <View style={styles.button} accessible>
+            <Thumbnail {...{thumbnail}} />
+            <View style={styles.label}>
+              <Text>{name}</Text>
             </View>
-          </TouchableHighlight>
-        ))}
-      </SafeAreaView>
-    </Transitioning.View>
+          </View>
+        </TouchableHighlight>
+      ))}
+    </SafeAreaView>
   );
 };
 
