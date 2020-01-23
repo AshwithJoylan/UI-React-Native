@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Hello App Display Name</string>
+    <string name="app_name">Apps</string>
+    <string name="facebook_app_id">629055851190820</string>
+    <string name="fb_login_protocol_scheme">fb629055851190820</string>
+    <string name="server_client_id">878213864098-4av4t4qrcjm19m2mva9drups1gd2ek1e.apps.googleusercontent.com</string>
 </resources>

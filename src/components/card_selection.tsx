@@ -5,7 +5,6 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 import {bInterpolate, timing as runTiming, max} from 'react-native-redash';
-
 import Card, {Card as CardModel, CARD_WIDTH, CARD_HEIGHT} from './card';
 import Thumbnail from '../utility/thumbnail';
 

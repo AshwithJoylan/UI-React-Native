@@ -1,4 +1,4 @@
-package com.apps;
+package com.customapp;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

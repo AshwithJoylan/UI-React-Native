@@ -22,6 +22,7 @@ import {
   PayDetails,
   Jewelry1,
   Chrome,
+  Logins,
   CardSelection,
 } from '../containers';
 
@@ -34,6 +35,7 @@ const screens: NavigationRouteConfigMap<
   Jewelry1,
   Profiles,
   Pay,
+  Logins,
   CardSelection,
   PayDetails,
   Chrome,
@@ -60,7 +62,7 @@ const config: CreateNavigatorConfig<
 > = {
   mode: 'card',
   headerMode: 'none',
-  initialRouteName: 'CardSelection',
+  initialRouteName: 'Logins',
   defaultNavigationOptions: {
     gestureEnabled: true,
     cardOverlayEnabled: true,
