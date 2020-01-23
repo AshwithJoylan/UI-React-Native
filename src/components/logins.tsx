@@ -8,7 +8,6 @@ import Google, {Status} from '../utility/google_signin';
 const Logins = () => {
   useEffect(() => {
     Google.logout();
-    
   }, []);
 
   return (
