@@ -14,3 +14,10 @@ export const jewelry1Colors = {
   primaryLight: '#EBE0DD',
   text: '#DFA797',
 };
+
+export const ChatUiColors = {
+  lightBlue: '#E9F6F9',
+  lightOrange: '#FFF7E4',
+  lightText: '#8A8B90',
+  lighterText: '#B5B5B5',
+};

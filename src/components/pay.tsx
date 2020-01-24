@@ -6,8 +6,8 @@ import {withNavigation, SafeAreaView} from 'react-navigation';
 import {NavProp} from 'src/nav';
 import {ParColors} from '../colors';
 import Simple from 'react-native-vector-icons/SimpleLineIcons';
-import {FlatList} from 'react-native-gesture-handler';
-import {Highlight, Button} from '../utility';
+import {FlatList, TouchableHighlight} from 'react-native-gesture-handler';
+import {Button} from '../utility';
 interface Props {
   navigation: NavProp;
 }
@@ -90,11 +90,16 @@ const Pay = ({navigation}: Props) => {
         backgroundColor="rgba(0,0,0,0.05)"
       />
       <View style={styles.top}>
-        <Image
-          source={require('../images/menu.png')}
-          resizeMode="contain"
-          style={styles.menu}
-        />
+        <TouchableHighlight
+          onPress={() => navigation.goBack()}
+          underlayColor="transparent"
+          style={styles.menu}>
+          <Image
+            source={require('../images/menu.png')}
+            style={styles.menuImage}
+            resizeMode="contain"
+          />
+        </TouchableHighlight>
         <View style={styles.logo}>
           <Image
             style={styles.logoImage}

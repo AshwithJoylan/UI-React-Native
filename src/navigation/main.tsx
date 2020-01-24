@@ -24,6 +24,9 @@ import {
   Chrome,
   Logins,
   CardSelection,
+  MainList,
+  ChatDetails,
+  Chat,
 } from '../containers';
 
 const screens: NavigationRouteConfigMap<
@@ -33,12 +36,50 @@ const screens: NavigationRouteConfigMap<
   Test,
   Home,
   Jewelry1,
-  Profiles,
-  Pay,
+  Profiles: {
+    screen: Profiles,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
+  Chat: {
+    screen: Chat,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
+  ChatDetails: {
+    screen: ChatDetails,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
+  Pay: {
+    screen: Pay,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
   Logins,
   CardSelection,
-  PayDetails,
-  Chrome,
+  PayDetails: {
+    screen: PayDetails,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
+  Chrome: {
+    screen: Chrome,
+    navigationOptions: {
+      title: 'Tabs',
+    },
+  },
+  MainList: {
+    screen: MainList,
+    navigationOptions: {
+      title: 'Screens',
+    },
+  },
 };
 
 // const txConfig = {
@@ -61,8 +102,8 @@ const config: CreateNavigatorConfig<
   StackNavigationProp
 > = {
   mode: 'card',
-  headerMode: 'none',
-  initialRouteName: 'Logins',
+  // headerMode: 'none',
+  initialRouteName: 'Chat',
   defaultNavigationOptions: {
     gestureEnabled: true,
     cardOverlayEnabled: true,

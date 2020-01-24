@@ -7,6 +7,11 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.secondary,
   },
+  menuImage: {
+    flex: 1,
+    width: undefined,
+    height: undefined
+  },
   top: {
     backgroundColor: Colors.primary,
     width: '100%',

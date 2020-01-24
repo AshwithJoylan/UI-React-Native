@@ -7,19 +7,14 @@ import {NavProp} from 'src/nav';
 import {SafeAreaView, withNavigation} from 'react-navigation';
 import {ParColors as Colors} from '../colors';
 import Simple from 'react-native-vector-icons/FontAwesome';
-import {Highlight, Button} from '../utility';
+import {Button} from '../utility';
 interface Props {
   navigation: NavProp;
 }
 
 const symbols = ['€', '$', '¥'];
 
-const but = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-  ['.', 0, '<'],
-];
+const but = [[1, 2, 3], [4, 5, 6], [7, 8, 9], ['.', 0, '<']];
 // Component
 const PayDetails = ({navigation}: Props) => {
   // State
