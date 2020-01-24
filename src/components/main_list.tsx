@@ -1,5 +1,11 @@
 import React from 'react';
-import {Text, FlatList, StyleSheet, ListRenderItem} from 'react-native';
+import {
+  Text,
+  FlatList,
+  StyleSheet,
+  ListRenderItem,
+  StatusBar,
+} from 'react-native';
 import {SafeAreaView, withNavigation} from 'react-navigation';
 import {TouchableHighlight} from 'react-native-gesture-handler';
 import {NavProp} from 'src/nav';
@@ -27,13 +33,21 @@ const data: DataLisProps = [
     title: 'Payments',
     component: 'Pay',
   },
+  {
+    title: 'Chat',
+    component: 'Chat',
+  },
+  {
+    title: 'Profile Page',
+    component: 'Profiles',
+  },
 ];
 
 interface MainListProps {
   navigation: NavProp;
 }
 
-const MainList = ({ navigation }: MainListProps) => {
+const MainList = ({navigation}: MainListProps) => {
   const renderItem: ListRenderItem<DataProps> = ({item}) => (
     <TouchableHighlight
       underlayColor="#ccc"
@@ -44,7 +58,8 @@ const MainList = ({ navigation }: MainListProps) => {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView forceInset={{top: 'never'}} style={styles.container}>
+      <StatusBar translucent />
       <FlatList
         ItemSeparatorComponent={() => <View style={styles.seperator} />}
         keyExtractor={(item, i) => i.toString()}

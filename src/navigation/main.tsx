@@ -103,7 +103,7 @@ const config: CreateNavigatorConfig<
 > = {
   mode: 'card',
   // headerMode: 'none',
-  initialRouteName: 'Chat',
+  initialRouteName: 'MainList',
   defaultNavigationOptions: {
     gestureEnabled: true,
     cardOverlayEnabled: true,

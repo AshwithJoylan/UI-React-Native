@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {View, Text, Image, StatusBar} from 'react-native';
+import {View, Text, Image, StatusBar, Keyboard} from 'react-native';
 import Ion from 'react-native-vector-icons/Ionicons';
 import {withNavigation, SafeAreaView} from 'react-navigation';
 import styles from '../styles/chat_details';
@@ -32,8 +32,18 @@ const ChatDetails = ({navigation}: ChatDetailsProps) => {
   // Sending message
   const sendMessage = () => {
     if (message) {
-      const msg: Message = {type: 'sent', message, time: Date.now()};
-      const sentMsg: Message = {type: 'received', message, time: Date.now()};
+      Keyboard.dismiss();
+      const msg: Message = {
+        type: 'sent',
+        message,
+        time: Date.now(),
+      };
+      const sentMsg: Message = {
+        type: 'received',
+        message,
+        time: Date.now(),
+      };
+
       messages.push(msg);
       setMessage('');
       messages.push(sentMsg);
@@ -63,6 +73,7 @@ const ChatDetails = ({navigation}: ChatDetailsProps) => {
           </View>
         </View>
         <ScrollView
+          keyboardShouldPersistTaps="handled"
           ref={ref => (scrollView = ref)}
           onContentSizeChange={() => {
             scrollView.scrollToEnd();
