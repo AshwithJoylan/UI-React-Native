@@ -27,13 +27,20 @@ import {
   MainList,
   ChatDetails,
   Chat,
+  Charts,
 } from '../containers';
+import Metrics from '../metrics';
 
 const screens: NavigationRouteConfigMap<
   StackNavigationOptions,
   StackNavigationProp
 > = {
-  Test,
+  Test: {
+    screen: Test,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
   Home,
   Jewelry1,
   Profiles: {
@@ -60,6 +67,7 @@ const screens: NavigationRouteConfigMap<
       headerShown: false,
     },
   },
+  Charts,
   Logins,
   CardSelection,
   PayDetails: {
@@ -105,7 +113,7 @@ const config: CreateNavigatorConfig<
   // headerMode: 'none',
   initialRouteName: 'MainList',
   defaultNavigationOptions: {
-    gestureEnabled: true,
+    gestureEnabled: Metrics.isAndroid ? false : true,
     cardOverlayEnabled: true,
     ...TransitionPresets.SlideFromRightIOS,
   },

@@ -9,6 +9,7 @@ import Logins from './logins';
 import MainList from './main_list';
 import Chat from './chat_ui';
 import ChatDetails from './chat_details';
+export {default as Charts} from './charts';
 export {
   Home,
   Profiles,

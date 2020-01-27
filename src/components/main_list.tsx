@@ -16,7 +16,7 @@ interface DataProps {
   component: string;
 }
 interface DataLisProps extends ReadonlyArray<DataProps> {}
-const data: DataLisProps = [
+export const data: DataLisProps = [
   {
     title: 'Logins',
     component: 'Logins',
@@ -41,6 +41,10 @@ const data: DataLisProps = [
     title: 'Profile Page',
     component: 'Profiles',
   },
+  {
+    title: 'Charts',
+    component: 'Charts',
+  },
 ];
 
 interface MainListProps {
@@ -48,8 +52,9 @@ interface MainListProps {
 }
 
 const MainList = ({navigation}: MainListProps) => {
-  const renderItem: ListRenderItem<DataProps> = ({item}) => (
+  const renderItem: ListRenderItem<DataProps> = ({item, index}) => (
     <TouchableHighlight
+      testID={`item-${index}`}
       underlayColor="#ccc"
       onPress={() => navigation.navigate(item.component)}
       style={styles.button}>
@@ -61,6 +66,7 @@ const MainList = ({navigation}: MainListProps) => {
     <SafeAreaView forceInset={{top: 'never'}} style={styles.container}>
       <StatusBar translucent />
       <FlatList
+        testID="main-list"
         ItemSeparatorComponent={() => <View style={styles.seperator} />}
         keyExtractor={(item, i) => i.toString()}
         data={data}
