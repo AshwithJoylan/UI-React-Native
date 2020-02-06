@@ -1,10 +1,10 @@
-import React, {useEffect, useRef, createRef} from 'react';
-import {View, Text, StyleSheet, Animated} from 'react-native';
+import React, {useEffect, createRef} from 'react';
+import {View, StyleSheet, Animated} from 'react-native';
 import {Svg, Path, LinearGradient, Defs, Stop} from 'react-native-svg';
 import {SafeAreaView} from 'react-navigation';
 import Metrics from './metrics';
 import * as path from 'svg-path-properties';
-import scale, {scaleTime, scaleLinear} from 'd3-scale';
+import {scaleTime, scaleLinear} from 'd3-scale';
 import * as shape from 'd3-shape';
 const height = 200;
 const {width} = Metrics;

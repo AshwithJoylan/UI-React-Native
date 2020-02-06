@@ -12,7 +12,7 @@ interface ChatProps {
   navigation: NavProp;
 }
 
-const Chat = ({navigation}: ChatProps) => {
+const Chat = ({ navigation }: ChatProps) => {
   // Render Items
   const renderItem: ListRenderItem<ChatListDataProps> = ({item}) => (
     <TouchableHighlight
